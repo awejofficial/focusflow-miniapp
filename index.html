@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FocusFlow — Study Task Tracker</title>
+    <meta
+      name="description"
+      content="FocusFlow is a personal study task tracker. Add, complete, and review your study tasks in the browser."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#task-input">Skip to add a task</a>
+
+    <div class="page">
+      <header class="hero">
+        <p class="eyebrow">Study session</p>
+        <h1>FocusFlow</h1>
+        <p class="subtitle">Your personal study task tracker</p>
+      </header>
+
+      <main>
+        <section class="panel" aria-labelledby="add-heading">
+          <h2 id="add-heading" class="visually-hidden">Add a study task</h2>
+          <form id="task-form" class="task-form">
+            <label for="task-input">What will you study next?</label>
+            <div class="task-form-row">
+              <input
+                id="task-input"
+                name="task"
+                type="text"
+                maxlength="140"
+                autocomplete="off"
+                placeholder="e.g. Review chapter 4 notes"
+                aria-describedby="task-help task-error"
+              />
+              <button type="submit" class="btn-primary">Add Task</button>
+            </div>
+            <p id="task-help" class="help-text">Press Enter or click Add Task.</p>
+            <p id="task-error" class="error-text" role="alert" hidden></p>
+          </form>
+        </section>
+
+        <section class="panel" aria-labelledby="list-heading">
+          <div class="toolbar">
+            <div>
+              <h2 id="list-heading">Today’s study list</h2>
+              <p id="stats" class="stats" aria-live="polite">
+                Total 0 · Pending 0 · Completed 0
+              </p>
+            </div>
+            <button type="button" id="clear-completed" class="btn-text" disabled>
+              Clear Completed
+            </button>
+          </div>
+
+          <div
+            class="filters"
+            role="group"
+            aria-label="Filter study tasks"
+          >
+            <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">
+              All
+            </button>
+            <button type="button" class="filter-btn" data-filter="pending" aria-pressed="false">
+              Pending
+            </button>
+            <button type="button" class="filter-btn" data-filter="completed" aria-pressed="false">
+              Completed
+            </button>
+          </div>
+
+          <ul id="task-list" class="task-list" aria-label="Study tasks"></ul>
+        </section>
+      </main>
+
+      <footer>
+        <p>Tasks stay on this device. Refreshing the page will not erase them.</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
